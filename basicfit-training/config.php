@@ -1,13 +1,14 @@
 <?php
+// Configuration de la base de données
+$host = '192.168.30.130';
+$dbname = 'fitconnect';
+$user = 'jfrancois';
+$pass = 'password!75';
 
 try {
-    $users = "root";
-    $pass = "root"; 
-    $bdd = new PDO("mysql:host=localhost;dbname=fitconnect;charset=utf8", $users, $pass);
+    $bdd = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $user, $pass);
     $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
-    echo "Erreur ! : " . $e->getMessage() . "<br/>";
-    die();
+    die("Erreur de connexion : " . $e->getMessage());
 }
-
 ?>
